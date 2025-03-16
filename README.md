@@ -14,4 +14,4 @@ This project is licensed under a [custom license](LICENSE).
 2. Unauthorized downloading, modifying, or redistributing of this code is strictly prohibited.
 
 ## Contact
-If you have any questions or need permission for modification/redistribution, please contact me at [your-email@example.com].
+If you have any questions or need permission for modification/redistribution, please contact me at [siddhantdigraje77@gmail.com].
