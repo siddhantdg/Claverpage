@@ -1,0 +1,275 @@
+{
+  "tools": [
+    {
+      "name": "ChatGPT",
+      "url": "https://chat.openai.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=chat.openai.com"
+    },
+    {
+      "name": "Microsoft",
+      "url": "https://microsoft.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=microsoft.com"
+    },
+    {
+      "name": "Claude Ai",
+      "url": "https://claude.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=claude.ai"
+    }
+  ],
+  "productivity": [
+    {
+      "name": "Notion",
+      "url": "https://notion.so",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=notion.so"
+    },
+    {
+      "name": "Todoist",
+      "url": "https://todoist.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=todoist.com"
+    },
+    {
+      "name": "Trello",
+      "url": "https://trello.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=trello.com"
+    },
+    {
+      "name": "Toggl Track",
+      "url": "https://toggl.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=toggl.com"
+    },
+    {
+      "name": "Obsidian",
+      "url": "https://obsidian.md",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=obsidian.md"
+    },
+    {
+      "name": "Noisli",
+      "url": "https://noisli.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=noisli.com"
+    },
+    {
+      "name": "G Calendar",
+      "url": "https://calendar.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=calendar.google.com"
+    },
+    {
+      "name": "G Docs",
+      "url": "https://docs.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=docs.google.com"
+    },
+    {
+      "name": "Clockify",
+      "url": "https://clockify.me",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clockify.me"
+    }
+  ],
+  "utilities": [
+    {
+      "name": "G Translate",
+      "url": "https://translate.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=translate.google.com"
+    },
+    {
+      "name": "QR Generator",
+      "url": "https://qr-code-generator.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=qr-code-generator.com"
+    },
+    {
+      "name": "PDF Converter",
+      "url": "https://ilovepdf.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=ilovepdf.com"
+    },
+    {
+      "name": "Remove.bg",
+      "url": "https://remove.bg",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=remove.bg"
+    },
+    {
+      "name": "Canva",
+      "url": "https://canva.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=canva.com"
+    },
+    {
+      "name": "TinyPNG",
+      "url": "https://tinypng.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=tinypng.com"
+    },
+    {
+      "name": "Unsplash",
+      "url": "https://unsplash.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=unsplash.com"
+    },
+    {
+      "name": "Temp Mail",
+      "url": "https://temp-mail.org",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=temp-mail.org"
+    },
+    {
+      "name": "Virustotal",
+      "url": "https://virustotal.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=virustotal.com"
+    },
+    {
+      "name": "Jotti’s Malware Scan",
+      "url": "https://virusscan.jotti.org",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=virusscan.jotti.org"
+    },
+    {
+      "name": "Speedtest",
+      "url": "https://speedtest.net",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=speedtest.net"
+    },
+    {
+      "name": "10 Min Mail",
+      "url": "https://10minutemail.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=10minutemail.com"
+    },
+    {
+      "name": "Bitly",
+      "url": "https://bitly.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bitly.com"
+    },
+    {
+      "name": "CloudConvert",
+      "url": "https://cloudconvert.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=cloudconvert.com/"
+    },
+    {
+      "name": "Down For Everyone Or Just Me",
+      "url": "https://downforeveryoneorjustme.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=downforeveryoneorjustme.com"
+    },
+    {
+      "name": "FilePuma",
+      "url": "https://filepuma.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=filepuma.com/"
+    },
+    {
+      "name": "Regex101",
+      "url": "https://regex101.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=regex101.com/"
+    },
+    {
+      "name": "WHOIS Lookup",
+      "url": "https://who.is",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=who.is"
+    },
+    {
+      "name": "Wayback Machine",
+      "url": "https://web.archive.org/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=web.archive.org/"
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook",
+      "url": "https://facebook.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=facebook.com"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://instagram.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=instagram.com"
+    },
+    {
+      "name": "X",
+      "url": "https://x.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=x.com"
+    },
+    {
+      "name": "Reddit",
+      "url": "https://reddit.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=reddit.com"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=linkedin.com"
+    },
+    {
+      "name": "Telegram",
+      "url": "https://web.telegram.org",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=web.telegram.org"
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://web.whatsapp.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=web.whatsapp.com"
+    },
+    {
+      "name": "Discord",
+      "url": "https://discord.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=discord.com"
+    },
+    {
+      "name": "Pinterest",
+      "url": "https://pinterest.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=pinterest.com"
+    },
+    {
+      "name": "Threads",
+      "url": "https://threads.net",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=threads.net"
+    },
+    {
+      "name": "Snapchat",
+      "url": "https://snapchat.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=snapchat.com"
+    },
+    {
+      "name": "Mastodon",
+      "url": "https://mastodon.social",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=mastodon.social"
+    },
+    {
+      "name": "Signal",
+      "url": "https://signal.org",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=signal.org"
+    },
+    {
+      "name": "BeReal",
+      "url": "https://bere.al",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bere.al"
+    },
+    {
+      "name": "Bluesky",
+      "url": "https://bsky.app",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bsky.app"
+    },
+    {
+      "name": "Meetup",
+      "url": "https://meetup.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=meetup.com"
+    },
+    {
+      "name": "Quora",
+      "url": "https://quora.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=quora.com"
+    },
+    {
+      "name": "Tumblr",
+      "url": "https://tumblr.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=tumblr.com"
+    },
+    {
+      "name": "Clubhouse",
+      "url": "https://clubhouse.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clubhouse.com"
+    },
+    {
+      "name": "Substack",
+      "url": "https://substack.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=substack.com"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://tiktok.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=tiktok.com"
+    },
+    {
+      "name": "Twitch",
+      "url": "https://twitch.tv",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=twitch.tv"
+    }    
+  ]
+}

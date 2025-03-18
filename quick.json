@@ -1,0 +1,31 @@
+{
+  "tools": [
+    {
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com"
+    }
+  ],
+  "productivity": [
+    {
+      "name": "Notion",
+      "url": "https://notion.so",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=notion.so"
+    },
+    {
+      "name": "Todoist",
+      "url": "https://todoist.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=todoist.com"
+    },
+    {
+      "name": "Trello",
+      "url": "https://trello.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=trello.com"
+    },
+    {
+      "name": "Toggl Track",
+      "url": "https://toggl.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=toggl.com"
+    }
+  ]
+}

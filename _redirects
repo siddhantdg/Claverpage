@@ -1,0 +1,19 @@
+# Primary routes
+/ /index.html 200  
+/lite /lite.html 200  
+/claver /claver.html 200
+
+# Block direct access to JSON files
+/*.json /index.html 403
+
+# Allow access to your actual JSON files only through your application
+/shortcuts.json /shortcuts.json 200
+/quick.json /quick.json 200
+
+# Prevent viewing source HTML directly
+/index.html* /index.html 200
+/lite.html* /lite.html 200
+/claver.html* /claver.html 200
+
+# Catch all for 404s
+/* /index.html 404
