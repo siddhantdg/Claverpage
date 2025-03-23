@@ -2,18 +2,123 @@
   "tools": [
     {
       "name": "ChatGPT",
-      "url": "https://chat.openai.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=chat.openai.com"
+      "url": "https://chatgpt.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com"
     },
     {
-      "name": "Microsoft",
-      "url": "https://microsoft.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=microsoft.com"
+      "name": "Gemini",
+      "url": "https://gemini.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com"
     },
     {
-      "name": "Claude Ai",
+      "name": "Claude AI",
       "url": "https://claude.ai",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=claude.ai"
+    },
+    {
+      "name": "Perplexity",
+      "url": "https://perplexity.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=perplexity.ai"
+    },
+    {
+      "name": "MS Copilot",
+      "url": "https://copilot.microsoft.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=copilot.microsoft.com"
+    },
+    {
+      "name": "GitHub Copilot",
+      "url": "https://github.com/copilot",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com/copilot"
+    },
+    {
+      "name": "Jasper",
+      "url": "https://jasper.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=jasper.ai"
+    },
+    {
+      "name": "QuillBot",
+      "url": "https://quillbot.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=quillbot.com"
+    },
+    {
+      "name": "WriteSonic",
+      "url": "https://writesonic.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=writesonic.com"
+    },
+    {
+      "name": "Grammarly",
+      "url": "https://grammarly.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=grammarly.com"
+    },
+    {
+      "name": "Midjourney",
+      "url": "https://midjourney.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=midjourney.com"
+    },
+    {
+      "name": "DALL-E2",
+      "url": "https://openai.com/dall-e-2",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=openai.com/dall-e-2"
+    },
+    {
+      "name": "Leonardo",
+      "url": "https://leonardo.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=leonardo.ai"
+    },
+    {
+      "name": "Codepen",
+      "url": "https://codepen.io",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=codepen.io"
+    },
+    {
+      "name": "JSFiddle",
+      "url": "https://jsfiddle.net",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=jsfiddle.net"
+    },
+    {
+      "name": "W3Schools",
+      "url": "https://w3schools.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=w3schools.com"
+    },
+    {
+      "name": "Stack Overflow",
+      "url": "https://stackoverflow.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=stackoverflow.com"
+    },
+    {
+      "name": "SourceGraph",
+      "url": "https://sourcegraph.com/cody/chat",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=sourcegraph.com/cody/chat"
+    },
+    {
+      "name": "BlackBox",
+      "url": "https://blackbox.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=blackbox.ai"
+    },
+    {
+      "name": "Replit",
+      "url": "https://replit.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=replit.com"
+    },
+    {
+      "name": "CodeSandbox",
+      "url": "https://codesandbox.io",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=codesandbox.io"
+    },
+    {
+      "name": "GitLab",
+      "url": "https://gitlab.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=gitlab.com"
+    },
+    {
+      "name": "Vercel",
+      "url": "https://vercel.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=vercel.com"
+    },
+    {
+      "name": "Netlify",
+      "url": "https://netlify.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=netlify.com"
     }
   ],
   "productivity": [
@@ -23,9 +128,29 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=notion.so"
     },
     {
-      "name": "Todoist",
-      "url": "https://todoist.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=todoist.com"
+      "name": "Obsidian",
+      "url": "https://obsidian.md",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=obsidian.md"
+    },
+    {
+      "name": "Evernote",
+      "url": "https://evernote.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=evernote.com"
+    },
+    {
+      "name": "Milanote",
+      "url": "https://milanote.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=milanote.com"
+    },
+    {
+      "name": "ClickUp",
+      "url": "https://clickup.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clickup.com"
+    },
+    {
+      "name": "Asana",
+      "url": "https://asana.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=asana.com"
     },
     {
       "name": "Trello",
@@ -33,19 +158,49 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=trello.com"
     },
     {
+      "name": "MeisterTask",
+      "url": "https://meistertask.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=meistertask.com"
+    },
+    {
+      "name": "Miro",
+      "url": "https://miro.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=miro.com"
+    },
+    {
+      "name": "MindMeister",
+      "url": "https://mindmeister.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=mindmeister.com"
+    },
+    {
+      "name": "Workflowy",
+      "url": "https://workflowy.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=workflowy.com/"
+    },
+    {
+      "name": "MyMind",
+      "url": "https://mymind.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=mymind.com"
+    },
+    {
+      "name": "Clockify",
+      "url": "https://clockify.me",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clockify.me"
+    },
+    {
       "name": "Toggl Track",
       "url": "https://toggl.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=toggl.com"
     },
     {
-      "name": "Obsidian",
-      "url": "https://obsidian.md",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=obsidian.md"
+      "name": "TimeCamp",
+      "url": "https://timecamp.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=timecamp.com"
     },
     {
-      "name": "Noisli",
-      "url": "https://noisli.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=noisli.com"
+      "name": "Pomofocus",
+      "url": "https://pomofocus.io",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=pomofocus.io"
     },
     {
       "name": "G Calendar",
@@ -53,14 +208,39 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=calendar.google.com"
     },
     {
-      "name": "G Docs",
-      "url": "https://docs.google.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=docs.google.com"
+      "name": "Tweek Calendar",
+      "url": "https://tweek.so",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=tweek.so"
     },
     {
-      "name": "Clockify",
-      "url": "https://clockify.me",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clockify.me"
+      "name": "Superlist",
+      "url": "https://superlist.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=superlist.com"
+    },
+    {
+      "name": "Raindrop.io",
+      "url": "https://raindrop.io",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=raindrop.io"
+    },
+    {
+      "name": "Habitica",
+      "url": "https://habitica.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=habitica.com"
+    },
+    {
+      "name": "Taskade",
+      "url": "https://taskade.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=taskade.com"
+    },
+    {
+      "name": "Todoist",
+      "url": "https://todoist.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=todoist.com"
+    },
+    {
+      "name": "Noisli",
+      "url": "https://noisli.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=noisli.com"
     }
   ],
   "utilities": [
@@ -80,19 +260,34 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=ilovepdf.com"
     },
     {
+      "name": "CloudConvert",
+      "url": "https://cloudconvert.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=cloudconvert.com/"
+    },
+    {
       "name": "Remove.bg",
       "url": "https://remove.bg",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=remove.bg"
     },
     {
-      "name": "Canva",
-      "url": "https://canva.com/",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=canva.com"
-    },
-    {
       "name": "TinyPNG",
       "url": "https://tinypng.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=tinypng.com"
+    },
+    {
+      "name": "Pixlr",
+      "url": "https://pixlr.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=pixlr.com"
+    },
+    {
+      "name": "Photopea",
+      "url": "https://photopea.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=photopea.com"
+    },
+    {
+      "name": "Canva",
+      "url": "https://canva.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=canva.com"
     },
     {
       "name": "Unsplash",
@@ -105,6 +300,11 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=temp-mail.org"
     },
     {
+      "name": "10 Min Mail",
+      "url": "https://10minutemail.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=10minutemail.com"
+    },
+    {
       "name": "Virustotal",
       "url": "https://virustotal.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=virustotal.com"
@@ -115,24 +315,14 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=virusscan.jotti.org"
     },
     {
+      "name": "WHOIS Lookup",
+      "url": "https://who.is",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=who.is"
+    },
+    {
       "name": "Speedtest",
       "url": "https://speedtest.net",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=speedtest.net"
-    },
-    {
-      "name": "10 Min Mail",
-      "url": "https://10minutemail.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=10minutemail.com"
-    },
-    {
-      "name": "Bitly",
-      "url": "https://bitly.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bitly.com"
-    },
-    {
-      "name": "CloudConvert",
-      "url": "https://cloudconvert.com/",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=cloudconvert.com/"
     },
     {
       "name": "Down For Everyone Or Just Me",
@@ -140,24 +330,24 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=downforeveryoneorjustme.com"
     },
     {
-      "name": "FilePuma",
-      "url": "https://filepuma.com/",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=filepuma.com/"
-    },
-    {
       "name": "Regex101",
       "url": "https://regex101.com/",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=regex101.com/"
     },
     {
-      "name": "WHOIS Lookup",
-      "url": "https://who.is",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=who.is"
-    },
-    {
       "name": "Wayback Machine",
       "url": "https://web.archive.org/",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=web.archive.org/"
+    },
+    {
+      "name": "Bitly",
+      "url": "https://bitly.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bitly.com"
+    },
+    {
+      "name": "FilePuma",
+      "url": "https://filepuma.com/",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=filepuma.com/"
     }
   ],
   "social": [
@@ -222,16 +412,6 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=mastodon.social"
     },
     {
-      "name": "Signal",
-      "url": "https://signal.org",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=signal.org"
-    },
-    {
-      "name": "BeReal",
-      "url": "https://bere.al",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=bere.al"
-    },
-    {
       "name": "Bluesky",
       "url": "https://bsky.app",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=bsky.app"
@@ -250,11 +430,6 @@
       "name": "Tumblr",
       "url": "https://tumblr.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=tumblr.com"
-    },
-    {
-      "name": "Clubhouse",
-      "url": "https://clubhouse.com",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=clubhouse.com"
     },
     {
       "name": "Substack",
