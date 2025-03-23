@@ -4,6 +4,26 @@
       "name": "ChatGPT",
       "url": "https://chatgpt.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=chatgpt.com"
+    },
+    {
+      "name": "Gemini",
+      "url": "https://gemini.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=gemini.google.com"
+    },
+    {
+      "name": "Claude AI",
+      "url": "https://claude.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=claude.ai"
+    },
+    {
+      "name": "Perplexity",
+      "url": "https://perplexity.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=perplexity.ai"
+    },
+    {
+      "name": "Midjourney",
+      "url": "https://midjourney.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=midjourney.com"
     }
   ],
   "productivity": [
@@ -26,6 +46,11 @@
       "name": "Toggl Track",
       "url": "https://toggl.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=toggl.com"
+    },
+    {
+      "name": "Obsidian",
+      "url": "https://obsidian.md",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=obsidian.md"
     }
   ]
 }
