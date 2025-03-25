@@ -31,6 +31,16 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com/copilot"
     },
     {
+      "name": "BlackBox",
+      "url": "https://blackbox.ai",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=blackbox.ai"
+    },
+    {
+      "name": "Hugging Face",
+      "url": "https://huggingface.co",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=huggingface.co"
+    },
+    {
       "name": "Jasper",
       "url": "https://jasper.ai",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=jasper.ai"
@@ -91,9 +101,9 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=sourcegraph.com/cody/chat"
     },
     {
-      "name": "BlackBox",
-      "url": "https://blackbox.ai",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=blackbox.ai"
+      "name": "Postman",
+      "url": "https://postman.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=postman.com"
     },
     {
       "name": "Replit",
@@ -104,6 +114,11 @@
       "name": "CodeSandbox",
       "url": "https://codesandbox.io",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=codesandbox.io"
+    },
+    {
+      "name": "Google Colab",
+      "url": "https://colab.research.google.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=colab.research.google.com"
     },
     {
       "name": "GitLab",
@@ -218,11 +233,6 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=superlist.com"
     },
     {
-      "name": "Raindrop.io",
-      "url": "https://raindrop.io",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=raindrop.io"
-    },
-    {
       "name": "Habitica",
       "url": "https://habitica.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=habitica.com"
@@ -236,6 +246,11 @@
       "name": "Todoist",
       "url": "https://todoist.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=todoist.com"
+    },
+    {
+      "name": "Raindrop.io",
+      "url": "https://raindrop.io",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=raindrop.io"
     },
     {
       "name": "Noisli",
@@ -328,6 +343,11 @@
       "name": "Down For Everyone Or Just Me",
       "url": "https://downforeveryoneorjustme.com",
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=downforeveryoneorjustme.com"
+    },
+    {
+      "name": "Diffchecker",
+      "url": "https://diffchecker.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=diffchecker.com"
     },
     {
       "name": "Regex101",
