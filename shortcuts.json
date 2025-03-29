@@ -36,14 +36,14 @@
       "icon": "https://www.google.com/s2/favicons?sz=64&domain=blackbox.ai"
     },
     {
-      "name": "Hugging Face",
-      "url": "https://huggingface.co",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=huggingface.co"
+      "name": "GitHub",
+      "url": "https://github.com",
+      "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com"
     },
     {
-      "name": "Jasper",
-      "url": "https://jasper.ai",
-      "icon": "https://www.google.com/s2/favicons?sz=64&domain=jasper.ai"
+      "name": "Hugging Face",
+      "url": "https://huggingface.co",
+      "icon": "https://www. cf.com/s2/favicons?sz=64&domain=huggingface.co"
     },
     {
       "name": "QuillBot",
