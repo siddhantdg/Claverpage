@@ -94,5 +94,5 @@ Project Link: [https://github.com/siddhantdg/Claverpage](https://github.com/sidd
 
 ---
 <p align="center">
-Made with ❤️ by Siddhant
+Made with ❤️ by Siddhant :)
 </p>
