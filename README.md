@@ -88,7 +88,7 @@ As the first project I've built and shared publicly, Claverpage is very special 
 
 ### 📞 Contact
 
-Siddhant Digraskar - [siddhantdigraje77@gmail.com](mailto:siddhantdigraje77@gmail.com)
+Siddhant Digraje - [siddhantdigraje77@gmail.com](mailto:siddhantdigraje77@gmail.com)
 
 Project Link: [https://github.com/siddhantdg/Claverpage](https://github.com/siddhantdg/Claverpage)
 
