@@ -1,0 +1,432 @@
+<!-- 
+Copyright (c) 2025 Siddhant Digraje. All rights reserved.
+This file is part of Claverpage.
+
+Permission is granted to view and use this page for personal, non-commercial purposes only through the official GitHub Pages link.  
+Unauthorized downloading, modifying, redistributing, or reverse engineering of this file in any form is strictly prohibited without explicit written permission from the copyright holder.  
+For permissions, contact: siddhantdigraje77@gmail.com 
+-->
+	
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="copyright" content="© 2025 SID - All rights reserved">
+    <title>Claverpage</title>
+    
+    <!-- Resource Hints for Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.open-meteo.com">
+    <link rel="preconnect" href="https://duckduckgo.com">
+    <link rel="dns-prefetch" href="https://api.open-meteo.com">
+    <link rel="dns-prefetch" href="https://duckduckgo.com">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="style.css">
+<link rel="preload" href="https://www.google.com/s2/favicons?sz=64&domain=gmail.com" as="image">
+<link rel="preload" href="https://www.google.com/s2/favicons?sz=64&domain=github.com" as="image">
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <!-- Custom Background Layer -->
+    <div id="custom-bg-layer"></div>
+    <div id="custom-bg-overlay"></div>
+
+    <!-- Weather Widget -->
+    <div id="weather-widget" class="weather-widget" onclick="openWeatherModal()">
+        <div class="weather-icon-wrapper"></div>
+        <span id="weather-temp">--°</span>
+    </div>
+
+    <!-- Settings Icon -->
+    <button class="settings-icon-btn" onclick="openSettingsModal()" title="Settings" aria-label="Open Settings">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+    </button>
+
+    <!-- Blur Backgrounds for Focus Mode -->
+    <div class="blur-bg" id="blurBgSearch" onclick="resetView()"></div>
+    <div class="blur-bg" id="blurBgTitle" onclick="resetView()"></div>
+    
+    <div class="container" id="container" style="opacity:0;">
+        <!-- Title & Search Options -->
+        <h1 id="googleTitle" onclick="toggleSearchOptions()" role="button" tabindex="0" aria-expanded="false" aria-controls="searchOptions">Google</h1>
+        <div class="search-options" id="searchOptions">
+            <button class="engine-btn engine-btn-google active" onclick="setSearchEngine('Google')">
+                Google
+            </button>
+            <button class="engine-btn engine-btn-bing" onclick="setSearchEngine('Bing')">
+                Bing
+            </button>
+            <button class="engine-btn engine-btn-duck" onclick="setSearchEngine('DuckDuckGo')">
+                DuckDuckGo
+            </button>
+            <button class="engine-btn engine-btn-brave" onclick="setSearchEngine('Brave')">
+                Brave
+            </button>
+            <button class="engine-btn engine-btn-start" onclick="setSearchEngine('Startpage')">
+                Startpage
+            </button>
+        </div>
+        <p class="subtext" id="helloText"></p>
+        
+        <!-- Search Bar -->
+        <div class="search-container" id="searchContainer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-secondary); margin-right:12px;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search web or type a URL..." onfocus="animateSearchBar()" onkeydown="handleSearch(event)">
+        </div>
+
+        <!-- Shortcut Wrapper 1: Tools -->
+        <div class="wrapper">
+            <div class="title" onclick="openModal('tools')">Tools</div>
+            <div class="container-shortcuts" id="tools-container"></div>
+        </div>
+
+        <!-- Shortcut Wrapper 2: Productivity -->
+        <div class="wrapper">
+            <div class="title" onclick="openModal('productivity')">Productivity</div>
+            <div class="container-shortcuts" id="productivity-container"></div>
+        </div>
+
+        <!-- Category Buttons -->
+        <div class="button-categories">
+            <div class="category-button" onclick="openModal('utilities')">
+                <span>Utilities</span>
+            </div>
+            <div class="category-button" onclick="openModal('social')">
+                <span>Social</span>
+            </div>
+        </div>
+
+        <!-- Hidden containers (for logic only) -->
+        <div id="utilities-container" style="display: none;"></div>
+        <div id="social-container" style="display: none;"></div>
+    </div>
+
+    <!-- Viewing Modal -->
+    <div class="modal" id="shortcut-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header-row">
+                <div class="modal-title" id="modal-title">Category</div>
+                <div class="modal-header-actions">
+                    <button class="modal-action-btn add-action" onclick="handleHeaderAction('add')" title="Add Shortcut" aria-label="Add Shortcut">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <button class="modal-action-btn edit-action" onclick="handleHeaderAction('organize')" title="Edit Shortcuts" aria-label="Edit Shortcuts">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="grid-container" id="modal-grid"></div>
+        </div>
+    </div>
+    
+    <!-- Weather Modal -->
+    <div class="modal" id="weather-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content weather-modal-content">
+            <div class="weather-header">
+                <div class="weather-header-row">
+                    <div class="weather-city-wrapper">
+                        <h2 id="weather-city">Loading...</h2>
+                        <input type="text" id="weather-city-input" class="weather-location-input" placeholder="Enter city" aria-label="Enter city">
+                        <button class="weather-edit-btn" onclick="toggleWeatherEdit()" title="Edit Location" aria-label="Edit Location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <p id="weather-date">--</p>
+            </div>
+            
+            <div class="weather-main">
+                <div class="weather-main-icon" id="weather-main-icon"></div>
+                <div class="weather-temp-big">
+                    <span id="weather-temp-val">--</span><span class="unit">°C</span>
+                </div>
+                <div class="weather-condition" id="weather-condition">--</div>
+            </div>
+
+            <div class="weather-grid">
+                <div class="weather-item">
+                    <span class="label">Humidity</span>
+                    <span class="value" id="weather-humidity">--%</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">Rain</span>
+                    <span class="value" id="weather-rain">--%</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">High</span>
+                    <span class="value" id="weather-high">--°</span>
+                </div>
+                <div class="weather-item">
+                    <span class="label">Low</span>
+                    <span class="value" id="weather-low">--°</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Shortcuts Modal -->
+    <div class="modal" id="edit-shortcuts-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-title" id="edit-modal-title">Edit Category</div>
+            
+            <div class="edit-modal-header">
+                <div class="segmented-control">
+                    <button class="segment-btn active" id="tab-add" onclick="switchEditView('add')">Add New</button>
+                    <button class="segment-btn" id="tab-organize" onclick="switchEditView('organize')">Organize</button>
+                </div>
+            </div>
+
+            <div class="edit-shortcuts-container">
+                <!-- Add View -->
+                <div class="edit-view" id="view-add">
+                    <div class="add-form-container">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" id="new-shortcut-name" placeholder="e.g. YouTube" class="edit-input">
+                        </div>
+                        <div class="input-group">
+                            <label>URL</label>
+                            <input type="text" id="new-shortcut-url" placeholder="https://youtube.com" class="edit-input">
+                        </div>
+                        <button id="add-shortcut-btn" class="primary-action-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            Add Shortcut
+                        </button>
+                        
+                        <!-- Staged Lobby -->
+                        <div id="staged-shortcuts-list" class="staged-shortcuts-list"></div>
+                    </div>
+                </div>
+
+                <!-- Organize View -->
+                <div class="edit-view hidden" id="view-organize">
+                    <div class="shortcuts-list" id="edit-shortcuts-list">
+                        <!-- Javascript will populate rows here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="edit-actions">
+                <button id="cancel-edit-btn" class="edit-btn cancel-btn">Cancel</button>
+                <button id="save-shortcuts-btn" class="edit-btn save-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Editor Modal (Revamped UI) -->
+    <div class="modal" id="bg-editor-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content bg-editor-content">
+            <div class="modal-header-row">
+                <div class="modal-title">Background Editor</div>
+                <button class="settings-close-icon" onclick="closeModal('bg-editor-modal')" aria-label="Close Background Editor">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div class="name-input-wrapper" style="margin-bottom: 24px; margin-top: 0;">
+                <input type="text" id="bg-url-input" class="name-input" placeholder="Paste image link (Pinterest, Unsplash...)">
+                <button class="save-name-btn" id="bg-load-btn" onclick="loadEditorImage()">Load</button>
+            </div>
+
+            <div class="bg-editor-preview-container" id="bg-editor-preview-container">
+                <img id="bg-editor-preview-img" src="" alt="Preview">
+                <div class="bg-ratio-frame" id="bg-ratio-frame"></div>
+                <p id="bg-editor-placeholder" style="color:var(--text-secondary); font-size: 13px;">Preview will appear here</p>
+            </div>
+
+            <div class="bg-editor-controls-grid">
+                <!-- Removed Position Sliders -->
+                <div class="range-group">
+                    <label>Blur Intensity <span id="val-blur">0px</span></label>
+                    <input type="range" id="range-blur" class="custom-range" min="0" max="40" value="0" oninput="updateBgPreview()">
+                </div>
+                <div class="range-group">
+                    <label>Dim Intensity <span id="val-dim">0%</span></label>
+                    <input type="range" id="range-dim" class="custom-range" min="0" max="95" value="0" oninput="updateBgPreview()">
+                </div>
+                <div class="range-group">
+                    <label>Zoom Level <span id="val-zoom">110%</span></label>
+                    <input type="range" id="range-zoom" class="custom-range" min="100" max="250" value="110" oninput="updateBgPreview()">
+                </div>
+            </div>
+            
+            <div class="edit-actions" style="border-top:none;">
+                <button class="edit-btn cancel-btn" onclick="closeModal('bg-editor-modal')">Discard</button>
+                <button class="edit-btn save-btn" id="apply-bg-btn" onclick="saveBackgroundSettings()">Save & Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settings-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content settings-modal-content">
+            <div class="settings-header">
+                <h2>Settings</h2>
+                <button class="settings-close-icon" onclick="closeModal('settings-modal')" aria-label="Close Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            
+            <div class="settings-body">
+                <!-- Personalization -->
+                <div class="settings-section">
+                    <div class="settings-section-title">Personalization</div>
+                    <div class="setting-item" style="display:block;">
+                        <label class="setting-label">Display Name</label>
+                        <span class="setting-desc" style="margin-bottom: 10px;">How the dashboard greets you</span>
+                        <div class="name-input-wrapper">
+                            <input type="text" id="settings-name-input" class="name-input" placeholder="Enter your name">
+                            <button onclick="saveNameSettings()" class="save-name-btn">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visuals (Consolidated) -->
+                <div class="settings-section">
+                     <div class="settings-section-title">Visuals</div>
+                     
+                     <div class="setting-item" style="display:block;">
+                        <label class="setting-label">Wallpaper & Environment</label>
+                        <span class="setting-desc" style="margin-bottom: 12px;">Set a custom image, or use adaptive dynamic colors</span>
+                        <div style="display:flex; gap: 10px; align-items:center;">
+                            <button onclick="openBgEditor()" class="edit-btn cancel-btn" style="flex:1; padding: 10px 0; margin: 0; display: flex; justify-content: center; align-items: center;">Edit Image</button>
+                            <button id="adaptive-btn" onclick="toggleAdaptiveBgButton()" class="edit-btn cancel-btn" style="flex:1; padding: 10px 0; margin: 0; display: flex; justify-content: center; align-items: center;">Dynamic: OFF</button>
+                        </div>
+                        <button onclick="resetBackground()" id="reset-bg-btn" class="edit-btn cancel-btn" style="width: 100%; padding: 10px; margin-top: 10px; display:none;">Reset to Default</button>
+                     </div>
+
+                     <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Dark Theme</span>
+                            <span class="setting-desc">Toggle between light and dark appearance</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="theme-toggle" onchange="toggleTheme(this)">
+                            <span class="slider"></span>
+                        </label>
+                     </div>
+
+                     <div class="setting-item">
+                        <div class="setting-info">
+                            <span class="setting-label">Performance Mode</span>
+                            <span class="setting-desc">Reduces visual effects for better performance and focus</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="lite-mode-toggle" onchange="toggleLiteMode(this)">
+                            <span class="slider"></span>
+                        </label>
+                     </div>
+                </div>
+
+                <!-- Sync & Recovery -->
+                <div class="settings-section">
+                    <div class="settings-section-title">Sync & Recovery</div>
+                    <div class="setting-item" style="display:block;">
+                        <label class="setting-label">Claver ID</label>
+                        <span class="setting-desc" style="margin-bottom: 10px;">Use this ID to sync your shortcuts across devices</span>
+                        <div id="sync-readonly-view" class="sync-input-container">
+                            <div class="sync-id-box">
+                                <input type="text" id="sync-id-display" class="sync-id-input" readonly>
+                                <button onclick="copyUserId()" class="copy-id-btn" title="Copy ID">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                </button>
+                            </div>
+                            <div class="sync-actions">
+                                <button onclick="showSyncEditView()" class="sync-btn" style="background: var(--glass-surface); color: var(--text-primary); border: 1px solid var(--glass-border);">
+                                    Change Claver ID
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="sync-edit-view" class="sync-input-container" style="display: none;">
+                            <div class="sync-warning" style="background: rgba(249, 115, 22, 0.1); border: 1px solid rgba(249, 115, 22, 0.3); color: var(--accent-color); padding: 10px; border-radius: 8px; font-size: 12px; margin-bottom: 5px; display: flex; gap: 8px; align-items: flex-start; line-height: 1.4;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                                <span><strong>Warning:</strong> Changing this ID will load a different set of shortcuts. Only do this if you want to link to an existing device.</span>
+                            </div>
+                            <div class="sync-id-box">
+                                <input type="text" id="sync-id-input" class="sync-id-input" placeholder="Enter new Sync ID">
+                            </div>
+                            <div class="sync-actions">
+                                <button onclick="hideSyncEditView()" class="sync-btn" style="background: var(--glass-surface); color: var(--text-primary); border: 1px solid var(--glass-border); flex: 0.5;">
+                                    Cancel
+                                </button>
+                                <button onclick="syncWithNewId()" class="sync-btn" style="flex: 1;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+                                    Sync now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Info -->
+                <div class="settings-footer">
+                    <span>Claverpage v2.0 • Built by SID</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal" id="about-modal" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content about-modal-content">
+            <h2 class="about-title" style="margin-top: 10px;">Claverpage</h2>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; opacity: 0.8;">Version 2.0</p>
+            
+            <p class="about-desc">
+                Streamlined speed & Effortless control<br>
+                A fluid experience.
+            </p>
+            
+            <div class="about-socials">
+                <a href="https://github.com/siddhantdg" target="_blank" class="social-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub
+                </a>
+                <a href="https://instagram.com/siddhant.07_" target="_blank" class="social-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Instagram
+                </a>
+            </div>
+            
+            <div class="about-footer-text">
+                <p>Designed & Built by <strong>SID</strong></p>
+                <p style="opacity: 0.5; margin-top: 4px;">© 2025 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Footer -->
+    <div class="footer">
+        <span>© 2025 SID</span>
+        <div class="separator"></div>
+        <span class="about-link">About</span>
+    </div>
+
+    <!-- Scripts -->
+    
+<script type="module" src="/index.tsx"></script>
+<script src="script.js"></script>
+</body>
+</html>

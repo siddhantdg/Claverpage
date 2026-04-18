@@ -1,0 +1,34 @@
+{
+  "tools": [
+    { "name": "ChatGPT", "url": "https://chat.openai.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=chat.openai.com" },
+    { "name": "Claude AI", "url": "https://claude.ai", "icon": "https://www.google.com/s2/favicons?sz=64&domain=claude.ai" },
+    { "name": "GitHub", "url": "https://github.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=github.com" },
+    { "name": "Stack Overflow", "url": "https://stackoverflow.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=stackoverflow.com" },
+    { "name": "CodePen", "url": "https://codepen.io", "icon": "https://www.google.com/s2/favicons?sz=64&domain=codepen.io" },
+    { "name": "Figma", "url": "https://www.figma.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=figma.com" },
+    { "name": "Canva", "url": "https://www.canva.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=canva.com" },
+    { "name": "JSFiddle", "url": "https://jsfiddle.net", "icon": "https://www.google.com/s2/favicons?sz=64&domain=jsfiddle.net" }
+  ],
+  "productivity": [
+    { "name": "Notion", "url": "https://www.notion.so", "icon": "https://www.google.com/s2/favicons?sz=64&domain=notion.so" },
+    { "name": "Trello", "url": "https://trello.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=trello.com" },
+    { "name": "Asana", "url": "https://asana.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=asana.com" },
+    { "name": "Microsoft To Do", "url": "https://to-do.microsoft.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=to-do.microsoft.com" },
+    { "name": "Evernote", "url": "https://evernote.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=evernote.com" },
+    { "name": "Slack", "url": "https://slack.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=slack.com" },
+    { "name": "Zoom", "url": "https://zoom.us", "icon": "https://www.google.com/s2/favicons?sz=64&domain=zoom.us" },
+    { "name": "Google Calendar", "url": "https://calendar.google.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=calendar.google.com" }
+  ],
+  "utilities": [
+    { "name": "Weather", "url": "https://weather.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=weather.com" },
+    { "name": "Calculator", "url": "https://www.desmos.com/calculator", "icon": "https://www.google.com/s2/favicons?sz=64&domain=desmos.com" },
+    { "name": "Converter", "url": "https://www.unitconverters.net", "icon": "https://www.google.com/s2/favicons?sz=64&domain=unitconverters.net" },
+    { "name": "QR Code Generator", "url": "https://www.qr-code-generator.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=qr-code-generator.com" }
+  ],
+  "social": [
+    { "name": "X", "url": "https://x.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=x.com" },
+    { "name": "Instagram", "url": "https://www.instagram.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=instagram.com" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=linkedin.com" },
+    { "name": "Reddit", "url": "https://www.reddit.com", "icon": "https://www.google.com/s2/favicons?sz=64&domain=reddit.com" }
+  ]
+}
