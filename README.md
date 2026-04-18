@@ -80,8 +80,6 @@ See [LICENSE](LICENSE) for full terms.
 ### Contact
 
 Siddhant Digraje — [siddhantdigraje77@gmail.com](mailto:siddhantdigraje77@gmail.com)
-&nbsp;·&nbsp;
-[github.com/siddhantdg/Claverpage](https://github.com/siddhantdg/Claverpage)
 
 ---
 
