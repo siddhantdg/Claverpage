@@ -1,0 +1,191 @@
+<!-- 
+Copyright (c) 2025 Siddhant Digraje. All rights reserved.
+This file is part of Claverpage.
+
+Permission is granted to view and use this page for personal, non-commercial purposes only through the official GitHub Pages link.  
+Unauthorized downloading, modifying, redistributing, or reverse engineering of this file in any form is strictly prohibited without explicit written permission from the copyright holder.  
+For permissions, contact: siddhantdigraje77@gmail.com 
+-->
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+.wrap { padding: 1rem 0; font-family: system-ui, sans-serif; }
+.sky { width:100%; height:160px; border-radius:14px; transition: background 1.5s ease; position:relative; }
+.sky-info { position:absolute; bottom:12px; left:14px; right:14px; display:flex; justify-content:space-between; align-items:flex-end; }
+.sky-label { color:rgba(255,255,255,0.92); font-size:13px; font-weight:500; text-shadow:0 1px 6px rgba(0,0,0,0.6); }
+.sky-time  { color:rgba(255,255,255,0.75); font-size:12px; font-family:monospace; text-shadow:0 1px 4px rgba(0,0,0,0.5); }
+.controls { display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+.row { display:flex; align-items:center; gap:10px; }
+label { font-size:12px; color:var(--color-text-secondary); min-width:52px; }
+input[type=range] { flex:1; }
+.val { font-size:12px; font-weight:500; min-width:38px; text-align:right; color:var(--color-text-primary); font-family:monospace; }
+.chips { display:flex; gap:6px; flex-wrap:wrap; }
+.chip { padding:5px 12px; border-radius:20px; font-size:12px; font-weight:500; cursor:pointer; border:1.5px solid transparent; transition:all 0.2s; color:var(--color-text-primary); background:var(--color-background-secondary); }
+.chip.active { border-color:var(--color-border-primary); }
+.strip-wrap { margin-top:12px; }
+.strip { width:100%; height:28px; border-radius:8px; overflow:hidden; display:flex; cursor:pointer; }
+.strip-seg { flex:1; transition:opacity 0.15s; }
+.strip-seg:hover { opacity:0.75; }
+.ticks { display:flex; justify-content:space-between; margin-top:3px; }
+.tick { font-size:10px; color:var(--color-text-secondary); font-family:monospace; }
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:14px; }
+.mini-sky { height:60px; border-radius:10px; position:relative; }
+.mini-label { position:absolute; bottom:6px; left:8px; font-size:10px; color:rgba(255,255,255,0.85); font-weight:500; text-shadow:0 1px 3px rgba(0,0,0,0.7); }
+</style>
+<div class="wrap">
+  <div class="sky" id="sky">
+    <div class="sky-info">
+      <span class="sky-label" id="skyLabel">—</span>
+      <span class="sky-time" id="skyTime">12:00</span>
+    </div>
+  </div>
+
+  <div class="strip-wrap">
+    <div class="strip" id="strip"></div>
+    <div class="ticks">
+      <span class="tick">0h</span><span class="tick">4h</span><span class="tick">8h</span>
+      <span class="tick">12h</span><span class="tick">16h</span><span class="tick">20h</span><span class="tick">24h</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="row">
+      <label>Hour</label>
+      <input type="range" id="hSlider" min="0" max="23.99" step="0.05" value="12">
+      <span class="val" id="hVal">12:00</span>
+    </div>
+    <div class="row">
+      <label>Weather</label>
+      <div class="chips" id="chips">
+        <div class="chip active" data-w="clear">Clear</div>
+        <div class="chip" data-w="cloudy">Cloudy</div>
+        <div class="chip" data-w="rain">Rain</div>
+        <div class="chip" data-w="snow">Snow</div>
+        <div class="chip" data-w="storm">Storm</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-grid" id="compareGrid"></div>
+</div>
+
+<script>
+const S = {
+  clear:[
+    {h:0,c:['#0a0e1a','#0f1b2d']},{h:3.5,c:['#0a0e1a','#0f1b2d']},
+    {h:4.2,c:['#12102a','#1e1535']},{h:4.8,c:['#1a1040','#2d1854']},
+    {h:5.2,c:['#2d1255','#5a1e3a']},{h:5.6,c:['#5c1f3a','#c4503d']},
+    {h:6.0,c:['#c45a38','#f4a26b']},{h:6.5,c:['#f4a060','#fdd99a']},
+    {h:7.2,c:['#fdd8a0','#d4eaff']},{h:8.5,c:['#b8d8f8','#e8f4ff']},
+    {h:10,c:['#7ec8f5','#c5e8ff']},{h:12,c:['#55b8f5','#9cd4f8']},
+    {h:14,c:['#4eb0f5','#85ccfa']},{h:16,c:['#7ac5f5','#bde2fc']},
+    {h:17,c:['#f5d08a','#f4a568']},{h:17.8,c:['#f09050','#e0553a']},
+    {h:18.4,c:['#c84040','#7a1c5a']},{h:19,c:['#5c1c62','#1c1040']},
+    {h:19.8,c:['#1e1240','#0f1525']},{h:21,c:['#0d1222','#0f1b2d']},
+    {h:22,c:['#0a0e1a','#0d1728']},{h:24,c:['#0a0e1a','#0f1b2d']}
+  ],
+  cloudy:[
+    {h:0,c:['#0d1218','#101820']},{h:4,c:['#0d1218','#101820']},
+    {h:5,c:['#1a2030','#253045']},{h:6,c:['#384858','#5a6878']},
+    {h:7.5,c:['#6a7888','#9aacb8']},{h:9,c:['#8a9eac','#b8ccd8']},
+    {h:11,c:['#9eaeb8','#c5d5dc']},{h:13,c:['#a2b0b8','#c8d5dc']},
+    {h:15,c:['#8898a5','#afc0c8']},{h:17,c:['#6878a0','#8a9ab8']},
+    {h:18,c:['#4a5878','#6a7898']},{h:19,c:['#283048','#384058']},
+    {h:20.5,c:['#161e2e','#1e2840']},{h:22,c:['#0d1218','#101820']},
+    {h:24,c:['#0d1218','#101820']}
+  ],
+  rain:[
+    {h:0,c:['#080e14','#0f1820']},{h:4,c:['#080e14','#0f1820']},
+    {h:5.5,c:['#182430','#283848']},{h:7,c:['#384858','#485868']},
+    {h:9,c:['#4a5c70','#607888']},{h:11,c:['#506070','#688090']},
+    {h:13,c:['#4c5c6e','#62788a']},{h:15,c:['#405060','#547080']},
+    {h:17,c:['#303c50','#405060']},{h:18.5,c:['#222c3e','#303c50']},
+    {h:20,c:['#141c2c','#1e2838']},{h:22,c:['#080e14','#0f1820']},
+    {h:24,c:['#080e14','#0f1820']}
+  ],
+  snow:[
+    {h:0,c:['#0c1428','#141e38']},{h:4,c:['#0c1428','#141e38']},
+    {h:5.5,c:['#283a58','#3a5070']},{h:7,c:['#6a8aaa','#a0bcd0']},
+    {h:8.5,c:['#a8c4d8','#d0e4f0']},{h:10,c:['#c0d8ea','#e2f0f8']},
+    {h:12,c:['#c8dce8','#e4f0f5']},{h:14,c:['#b8d0e0','#d8ecf4']},
+    {h:16,c:['#a0b8cc','#c5d8e8']},{h:17.5,c:['#7090b0','#98b8cc']},
+    {h:19,c:['#304870','#485e80']},{h:20.5,c:['#1c2c4a','#283858']},
+    {h:22,c:['#0c1428','#141e38']},{h:24,c:['#0c1428','#141e38']}
+  ],
+  storm:[
+    {h:0,c:['#050810','#0a1018']},{h:4,c:['#050810','#0a1018']},
+    {h:5.5,c:['#18202c','#283038']},{h:7,c:['#2c3840','#404e58']},
+    {h:9,c:['#384450','#505c68']},{h:11,c:['#3c4850','#546068']},
+    {h:13,c:['#384448','#4e5a60']},{h:15,c:['#2e3840','#404c54']},
+    {h:17,c:['#24303c','#343e4a']},{h:18.5,c:['#1a2430','#28303c']},
+    {h:20,c:['#101820','#181f28']},{h:22,c:['#050810','#0a1018']},
+    {h:24,c:['#050810','#0a1018']}
+  ]
+};
+
+const PHASE_LABELS = {
+  clear:   ['Night','Night','Pre-dawn','Deep indigo','Violet','First light','Sunrise fire','Warm glow','Morning lift','Fresh morning','Late morning','Midday','Bright afternoon','Afternoon blue','Golden hour','Golden peak','Sunset fire','Dusk violet','Twilight','Early night','Night','Night'],
+  cloudy:  ['Night','Night','Pre-dawn','Cool dawn','Cloudy lift','Soft grey','Grey midday','Grey afternoon','Dimming','Dusk blue','Evening','Night','Night','Night','Night'],
+  rain:    ['Night','Night','Rainy dawn','Morning rain','Wet morning','Rain midday','Afternoon rain','Heavy','Rainy dusk','Wet evening','Night','Night','Night'],
+  snow:    ['Night','Night','Cold dawn','Snow lift','Icy morning','Snow day','Bright snow','Snowy afternoon','Snow dusk','Cold evening','Night','Night','Night','Night'],
+  storm:   ['Night','Night','Storm dawn','Dark morn','Storm grey','Storm midday','Storm afternoon','Dark','Storm dusk','Storm night','Night','Night','Night']
+};
+
+function h2r(hex){const r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);return r?[parseInt(r[1],16),parseInt(r[2],16),parseInt(r[3],16)]:[0,0,0];}
+function getGrad(h,w){
+  const sc=S[w];let s1=sc[0],s2=sc[sc.length-1];
+  for(let i=0;i<sc.length-1;i++){if(h>=sc[i].h&&h<sc[i+1].h){s1=sc[i];s2=sc[i+1];break;}}
+  const p=(h-s1.h)/(s2.h-s1.h);
+  const e=p<0.5?2*p*p:-1+(4-2*p)*p;
+  const c1a=h2r(s1.c[0]),c1b=h2r(s1.c[1]),c2a=h2r(s2.c[0]),c2b=h2r(s2.c[1]);
+  const m=(a,b)=>Math.round(a+e*(b-a));
+  return `linear-gradient(160deg,rgb(${m(c1a[0],c2a[0])},${m(c1a[1],c2a[1])},${m(c1a[2],c2a[2])}) 0%,rgb(${m(c1b[0],c2b[0])},${m(c1b[1],c2b[1])},${m(c1b[2],c2b[2])}) 100%)`;
+}
+function getLabel(h,w){const sc=S[w];const labs=PHASE_LABELS[w];for(let i=0;i<sc.length-1;i++){if(h>=sc[i].h&&h<sc[i+1].h)return labs[i]||'';}return '';}
+function fmt(h){const hr=Math.floor(h),mn=Math.round((h%1)*60);return `${String(hr).padStart(2,'0')}:${String(mn).padStart(2,'0')}`;}
+
+let weather='clear', hour=12;
+
+function render(){
+  document.getElementById('sky').style.background=getGrad(hour,weather);
+  document.getElementById('skyLabel').textContent=weather.charAt(0).toUpperCase()+weather.slice(1)+' · '+getLabel(hour,weather);
+  document.getElementById('skyTime').textContent=fmt(hour);
+  document.getElementById('hVal').textContent=fmt(hour);
+}
+
+function buildStrip(){
+  const strip=document.getElementById('strip');strip.innerHTML='';
+  for(let i=0;i<96;i++){
+    const h=i*(24/96);
+    const seg=document.createElement('div');
+    seg.className='strip-seg';
+    seg.style.background=getGrad(h,weather);
+    seg.addEventListener('click',()=>{hour=h;document.getElementById('hSlider').value=h;render();});
+    strip.appendChild(seg);
+  }
+}
+
+function buildCompare(){
+  const grid=document.getElementById('compareGrid');grid.innerHTML='';
+  const snapHours=[6.2,12,17.5,19.2];
+  const snapLabels=['Sunrise','Midday','Golden Hour','Dusk'];
+  snapHours.forEach((h,i)=>{
+    const d=document.createElement('div');
+    d.className='mini-sky';
+    d.style.background=getGrad(h,weather);
+    d.innerHTML=`<div class="mini-label">${snapLabels[i]}</div>`;
+    grid.appendChild(d);
+  });
+}
+
+document.getElementById('hSlider').addEventListener('input',e=>{hour=parseFloat(e.target.value);render();});
+document.getElementById('chips').addEventListener('click',e=>{
+  const chip=e.target.closest('.chip');if(!chip)return;
+  weather=chip.dataset.w;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  buildStrip();buildCompare();render();
+});
+
+buildStrip();buildCompare();render();
+</script>
