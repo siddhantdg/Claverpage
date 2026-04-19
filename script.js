@@ -21,7 +21,7 @@ const firebaseConfig = {
   const db = firebase.firestore();
 
 /* --- Initialization --- */
-        const DEFAULT_NAME = "Siddhant";
+        const DEFAULT_NAME = "Claver";
         
         /* --- IndexedDB Image Caching --- */
         const DB_NAME = 'ClaverpageDB';
